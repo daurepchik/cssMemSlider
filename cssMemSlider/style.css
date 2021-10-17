@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background-color: rgb(46, 46, 46);
+}
+
 .slide1 {
   background-image: url(images/1.jpg);
 }
@@ -21,29 +26,89 @@
 
 .container {
   margin: 100px auto;
-  height: 400px;
+  height: auto;
+  width: 940px;
+  display: flex;
+  flex-direction: column;
 }
 
 input {
   display: none;
 }
 
-.slider-text {
-}
-
-.text {
-}
-
 .slider {
   width: 100%;
-  height: 100%;
+  height: 510px;
   position: relative;
+  overflow: hidden;
+  background-color: grey;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .slide {
   width: 100%;
   height: 100%;
+  position: absolute;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+}
+
+.slider-text-controls {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+}
+
+.slider-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  position: relative;
+}
+
+.text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500px;
+  color: rgb(253, 194, 125);
+}
+
+.controls {
+  display: flex;
+  column-gap: 20px;
+}
+
+label {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  position: relative;
+  border-radius: 50%;
+  transition: 0.2s;
+  background: rgb(74, 143, 167);
+  border: 2px solid rgb(74, 143, 167);
+}
+
+#bullet1:checked ~ .slider-text-controls > .controls label:nth-child(1),
+#bullet2:checked ~ .slider-text-controls > .controls label:nth-child(2),
+#bullet3:checked ~ .slider-text-controls > .controls label:nth-child(3),
+#bullet4:checked ~ .slider-text-controls > .controls label:nth-child(4),
+#bullet5:checked ~ .slider-text-controls > .controls label:nth-child(5) {
+  background: black;
+}
+
+#bullet1:checked ~ .slider-text-controls > .controls label:nth-child(1):hover,
+#bullet2:checked ~ .slider-text-controls > .controls label:nth-child(2):hover,
+#bullet3:checked ~ .slider-text-controls > .controls label:nth-child(3):hover,
+#bullet4:checked ~ .slider-text-controls > .controls label:nth-child(4):hover,
+#bullet5:checked ~ .slider-text-controls > .controls label:nth-child(5):hover {
+  background: white;
+}
+
+label:hover {
+  background: white;
+  border-color: white;
 }
